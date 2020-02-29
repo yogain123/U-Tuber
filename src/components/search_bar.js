@@ -18,7 +18,7 @@ class SearchBar extends Component {
 
   handleOnchange(event) {
     this.setState({ term: event.target.value });
-    debounce(this.onInputChange, 9000)(event.target.value);
+    debounce(this.onInputChange, 2000)(event.target.value);
   }
 
   _handleKeyPress = e => {
