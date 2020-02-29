@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import debounce from "../services/debounce";
 import _ from "lodash";
+
 class SearchBar extends Component {
   constructor(props) {
     super(props);
@@ -15,12 +16,9 @@ class SearchBar extends Component {
     this.searchBarRef.current.focus();
   }
 
-  //executeDebounce = debounce(this.onInputChange, 1000);
-  executeDebounce = _.debounce(this.onInputChange, 1000);
-
   handleOnchange(event) {
     this.setState({ term: event.target.value });
-    this.executeDebounce(event.target.value);
+    debounce(this.onInputChange, 9000)(event.target.value);
   }
 
   _handleKeyPress = e => {
