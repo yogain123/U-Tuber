@@ -1,11 +1,14 @@
-const debounce = function(fn, timeout) {
-  let timer;
-  return () => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
+const throttle = function(fn, timeout) {
+  let flag = true;
+  return (...rest) => {
+    if (flag) {
       fn();
-    }, timeout);
+      flag = false;
+      setTimeout((...rest) => {
+        flag = true;
+      }, timeout);
+    }
   };
 };
 
-export default debounce;
+export default throttle;
