@@ -2,9 +2,9 @@ const throttle = function(fn, timeout) {
   let flag = true;
   return (...rest) => {
     if (flag) {
-      fn();
+      fn(...rest);
       flag = false;
-      setTimeout((...rest) => {
+      setTimeout(() => {
         flag = true;
       }, timeout);
     }
