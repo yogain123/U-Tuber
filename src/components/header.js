@@ -21,6 +21,8 @@ export default function header() {
         >
           U-Tuber
         </a>
+        <a href="https://github.com/yogain123/U-Tuber" target="_blank"><i className="fa fa-github" style={{fontSize:36,float:"right",marginTop:10,color:"black"}}></i></a>
+        
       </div>
     </nav>
   );
