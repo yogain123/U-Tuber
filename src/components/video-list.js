@@ -1,16 +1,19 @@
 import React from "react";
-const VideoList = props => {
+const VideoList = (props) => {
   if (props.videos.length === 0) {
     return <div>Loading...</div>;
   }
   let lol = props.videos;
 
-  const hola = lol.map(item => {
+  const hola = lol.map((item) => {
     return (
       <li
         className="list-group-item"
         key={item.etag}
-        onClick={() => props.onVideoSelected(item)}
+        onClick={() => {
+          props.onVideoSelected(item);
+          window.scroll({ top: 0, behavior: "smooth" });
+        }}
       >
         <div className="video-list-media">
           <div className="media-left">
